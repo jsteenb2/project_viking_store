@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-gem 'hirb'
+# gem 'hirb'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',  '~> 1.3.6',      group: :development
 
-gem 'pry'
+# gem 'pry'
 
 gem 'faker'
 # Use ActiveModel has_secure_password
@@ -39,3 +39,10 @@ gem 'faker'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development, :test do
+  # Note: Need to pull this fork directly because
+  # the original uses pry-debugger which doesn't work
+  # with Ruby 2
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'pry-byebug'
+end
