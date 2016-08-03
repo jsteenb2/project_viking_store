@@ -1,0 +1,39 @@
+<div style="margin-top:30px;">
+  <h2>Top 3 States Users Live In (billing)</h2>
+  <table class="table table-responsive table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% dash.states_by_user_count(3).each do |row| %>
+        <tr>
+          <td><%= row.name.capitalize %></td>
+          <td><%= row.user_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div style="margin-top:30px;">
+  <h2>Top 3 Cities Users Live In (billing)</h2>
+  <table class="table table-responsive table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% dash.cities_by_user_count(3).each do |row| %>
+        <tr>
+          <td><%= row.name.capitalize %></td>
+          <td><%= row.user_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
