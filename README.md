@@ -1,4 +1,4 @@
-Project: Viking Store Admin
+Morgan and Johnny's Project: Viking Store Admin
 ========================
 
 ##To Get Going On This Assignment
