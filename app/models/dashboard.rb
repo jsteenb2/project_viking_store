@@ -9,16 +9,13 @@ class Dashboard < ActiveRecord::Base
       return_hash[:users] = User.count
       return_hash[:orders] = Order.count
       return_hash[:products] = Product.count
-      return_hash[:users] = User.count
+      return_hash[:revenue] = Order.revenue(num_days)
     end
+    return_hash
   end
 
-  def calculate_revenue(days_ago = nil)
-    if days
-      total_costs = Order.find_by_sql('SELECT SUM(products.price * order_contents.quantity) as total FROM orders JOIN order_contents ON orders.id = order_contents.order_id JOIN products ON products.id = order_contents.product_id WHERE orders.checkout_date IS NOT NULL AND checkout_date is > ?', (midnight_tonight - days_ago))
-    else
-      total_costs = Order.find_by_sql('SELECT SUM(products.price * order_contents.quantity) as total FROM orders JOIN order_contents ON orders.id = order_contents.order_id JOIN products ON products.id = order_contents.product_id WHERE orders.checkout_date IS NOT NULL')
-    end
+  def midnight_tonight
+    (Time.now.to_date + 1).to_time
   end
 
   def store_days_max
