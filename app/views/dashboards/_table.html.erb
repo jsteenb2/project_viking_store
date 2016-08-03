@@ -1,29 +1,27 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Item</th>
-      <th>Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <% [7, 30, 'Total'].each do |day| %>
+    <h2>
+      <% if day.is_a? String %>
+        <%= day %>
+      <% else %>
+        Last <%= day %> Days
+      <% end %>
+    </h2>
+    <table class="table table-responsive table-hover">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% dash.overall_platform(day).each do |key, value| %>
+        <tr>
+          <td><%= key.capitalize %></td>
+          <td><%= value %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

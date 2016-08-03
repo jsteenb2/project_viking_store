@@ -1,25 +1,13 @@
 class Dashboard < ActiveRecord::Base
 
   def overall_platform(num_days = nil)
-    return_hash = {}
-    if num_days
-
-    else
-      # total users, orders, products, revenue
-      return_hash[:users] = User.count
-      return_hash[:orders] = Order.count
-      return_hash[:products] = Product.count
-      return_hash[:revenue] = Order.revenue(num_days)
-    end
-    return_hash
-  end
-
-  def midnight_tonight
-    (Time.now.to_date + 1).to_time
-  end
-
-  def store_days_max
-
+    num_days = nil if num_days.is_a? String
+    stats_hash = {}
+    stats_hash[:users] = User.total_by_date(num_days)
+    stats_hash[:orders] = Order.total_by_date(num_days)
+    stats_hash[:products] = Product.total_by_date(num_days)
+    stats_hash[:revenue] = Order.revenue(num_days)
+    stats_hash
   end
 end
 
