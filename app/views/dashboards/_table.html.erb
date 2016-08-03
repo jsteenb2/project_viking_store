@@ -1,5 +1,5 @@
-<div>
-  <% [7, 30, 'Total'].each do |day| %>
+<% [7, 30, 'Total'].each do |day| %>
+  <div style="margin-top:30px;">
     <h2>
       <% if day.is_a? String %>
         <%= day %>
@@ -7,7 +7,7 @@
         Last <%= day %> Days
       <% end %>
     </h2>
-    <table class="table table-responsive table-hover">
+    <table class="table table-responsive table-hover table-striped">
       <thead>
         <tr>
           <th>Item</th>
@@ -23,5 +23,5 @@
       <% end %>
       </tbody>
     </table>
-  <% end %>
-</div>
+  </div>
+<% end %>
