@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
   def index
-    @dash = Dashboard.new.overall_platform
+    @dash = Dashboard.new
   end
 end
