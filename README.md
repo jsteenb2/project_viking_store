@@ -1,11 +1,10 @@
-Morgan and Johnny's Project: Viking Store Admin
+Viking Store SQL exercises
 ========================
 
-##To Get Going On This Assignment
+##Description
+This is an exercise in working with Rails active record to select dabatase entries. The searches utilize SQL search criteria in an active record wrapper.
+
+##To Get Started
 - run `rake db:create`
 - run `rake db:migrate`
 - run `rake db:seed`
-
-- take a look around the schema file to see how models were created
-
-Link to solution info on the seeding of this lives [here](https://gist.github.com/betweenparentheses/0b6b325ceaaea76a521d)
